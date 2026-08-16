@@ -1,0 +1,99 @@
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.75rem, 1.6vw, 1.75rem);
+}
+
+.portfolio-grid__item--wide {
+  grid-column: span 2;
+}
+
+.portfolio-grid__item--normal,
+.portfolio-grid__item--tall {
+  grid-column: span 1;
+}
+
+.portfolio-grid__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.portfolio-grid__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-quiet), opacity var(--dur-fast) ease;
+}
+
+.portfolio-grid__item--landscape .portfolio-grid__frame {
+  aspect-ratio: 3 / 2;
+}
+
+.portfolio-grid__item--portrait .portfolio-grid__frame {
+  aspect-ratio: 4 / 5;
+}
+
+.portfolio-grid__item--tall.portfolio-grid__item--portrait .portfolio-grid__frame {
+  aspect-ratio: 3 / 4;
+}
+
+.portfolio-grid__item--square .portfolio-grid__frame {
+  aspect-ratio: 1 / 1;
+}
+
+@media (hover: hover) {
+  .portfolio-grid__frame:hover img {
+    transform: scale(1.035);
+  }
+}
+
+.portfolio-grid__frame:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -3px;
+}
+
+@media (max-width: 1000px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-grid__item--wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 620px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .portfolio-grid__item--wide,
+  .portfolio-grid__item--normal,
+  .portfolio-grid__item--tall {
+    grid-column: 1;
+  }
+
+  .portfolio-grid__item--landscape .portfolio-grid__frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .portfolio-grid__item--tall.portfolio-grid__item--portrait .portfolio-grid__frame,
+  .portfolio-grid__item--portrait .portfolio-grid__frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Break every third frame out to the viewport edge for a less
+     mechanical, more intentional mobile rhythm. */
+  .portfolio-grid__item:nth-child(3n + 2) {
+    margin-inline: calc(var(--gutter) * -1);
+  }
+
+  .portfolio-grid__item:nth-child(3n + 2) .portfolio-grid__frame {
+    aspect-ratio: 5 / 4;
+  }
+}

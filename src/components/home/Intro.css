@@ -1,0 +1,19 @@
+.intro {
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+  display: flex;
+  justify-content: center;
+}
+
+.intro__text {
+  max-width: 42rem;
+  text-align: center;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.intro__text em {
+  color: var(--color-accent);
+  font-style: italic;
+}

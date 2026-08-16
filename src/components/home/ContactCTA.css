@@ -1,0 +1,41 @@
+.contact-cta {
+  background: var(--color-bg-alt);
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+  margin-top: clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+
+.contact-cta .container {
+  max-width: 38rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-cta__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: 0.85rem;
+}
+
+.contact-cta__text {
+  margin-top: 1.25rem;
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.contact-cta__link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 0.35rem;
+  transition: color var(--dur-fast) var(--ease-quiet);
+}
+
+.contact-cta__link:hover {
+  color: var(--color-accent);
+}
