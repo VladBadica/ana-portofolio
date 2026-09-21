@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { t } from "../../i18n/index.js";
+import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import "./Hero.css";
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section className="hero">
       <div className="hero__image-wrap">

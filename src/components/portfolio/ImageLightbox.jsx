@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
-import { t } from "../../i18n/index.js";
+import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import "./ImageLightbox.css";
 
 export default function ImageLightbox({ images, index, onClose, onNavigate }) {
+  const { t } = useTranslation();
   const closeRef = useRef(null);
   const isOpen = index !== null && index >= 0;
   const image = isOpen ? images[index] : null;

@@ -1,10 +1,11 @@
-import { t } from "../../i18n/index.js";
+import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import "./CategoryFilter.css";
 
 // Only renders categories that currently have published work, so the
 // filter row grows naturally as new categories (families, portraits...)
 // receive content, instead of showing empty tabs.
 export default function CategoryFilter({ categories, active, onChange }) {
+  const { t } = useTranslation();
   const options = [{ id: "all", label: t.categories.all }, ...categories];
 
   return (

@@ -1,11 +1,13 @@
 import Reveal from "../common/Reveal.jsx";
-import { t } from "../../i18n/index.js";
+import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import "./PortfolioGrid.css";
 
 // Generic, category-agnostic editorial grid. Placement comes entirely
 // from each image's `span`/`orientation` fields in the data layer, so
 // new categories slot in without any markup changes here.
 export default function PortfolioGrid({ images, onImageClick }) {
+  const { t } = useTranslation();
+
   return (
     <ul className="portfolio-grid">
       {images.map((image, index) => (

@@ -1,28 +1,30 @@
 import Reveal from "../components/common/Reveal.jsx";
-import { t } from "../i18n/index.js";
+import { useTranslation } from "../i18n/LanguageContext.jsx";
 import "./Contact.css";
 
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL;
 const contactPhone = import.meta.env.VITE_CONTACT_PHONE;
 
-const details = [
-  { label: t.contact.details.emailLabel, value: contactEmail, href: `mailto:${contactEmail}` },
-  {
-    label: t.contact.details.phoneLabel,
-    value: contactPhone,
-    href: `tel:${contactPhone.replace(/\s+/g, "")}`,
-  },
-  {
-    label: t.contact.details.instagramLabel,
-    value: t.contact.details.instagramValue,
-    href: "https://instagram.com",
-  },
-  { label: t.contact.details.basedInLabel, value: t.contact.details.basedInValue },
-];
-
-const offerings = t.contact.offerings.items;
-
 export default function Contact() {
+  const { t } = useTranslation();
+
+  const details = [
+    { label: t.contact.details.emailLabel, value: contactEmail, href: `mailto:${contactEmail}` },
+    {
+      label: t.contact.details.phoneLabel,
+      value: contactPhone,
+      href: `tel:${contactPhone.replace(/\s+/g, "")}`,
+    },
+    {
+      label: t.contact.details.instagramLabel,
+      value: t.contact.details.instagramValue,
+      href: "https://instagram.com",
+    },
+    { label: t.contact.details.basedInLabel, value: t.contact.details.basedInValue },
+  ];
+
+  const offerings = t.contact.offerings.items;
+
   return (
     <div className="page-fade contact-page">
       <section className="contact-intro container">

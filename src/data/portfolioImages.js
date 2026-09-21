@@ -10,8 +10,6 @@
 //   span        "wide" | "tall" | "normal" — controls grid placement
 //   featured    included in the homepage Featured Work strip
 
-import { t } from "../i18n/index.js";
-
 function unsplash(id, w, h) {
   return `https://images.unsplash.com/${id}?w=${w}&h=${h}&q=80&auto=format&fit=crop`;
 }
@@ -184,30 +182,32 @@ const SIZE_MAP = {
   square: { w: 1200, h: 1200 },
 };
 
-export const portfolioImages = raw.map((img) => {
-  const { w, h } = SIZE_MAP[img.orientation];
-  return {
-    ...img,
-    alt: t.portfolioImages[img.id],
-    src: unsplash(img.photoId, w, h),
-    thumbSrc: unsplash(img.photoId, Math.round(w / 2.4), Math.round(h / 2.4)),
-  };
-});
-
-export function getImagesByCategory(categoryId) {
-  if (!categoryId || categoryId === "all") return portfolioImages;
-  return portfolioImages.filter((img) => img.category === categoryId);
+export function getPortfolioImages(t) {
+  return raw.map((img) => {
+    const { w, h } = SIZE_MAP[img.orientation];
+    return {
+      ...img,
+      alt: t.portfolioImages[img.id],
+      src: unsplash(img.photoId, w, h),
+      thumbSrc: unsplash(img.photoId, Math.round(w / 2.4), Math.round(h / 2.4)),
+    };
+  });
 }
 
-export function getFeaturedImages(limit = 6) {
-  const featured = portfolioImages.filter((img) => img.featured);
-  return (featured.length ? featured : portfolioImages).slice(0, limit);
+export function getImagesByCategory(images, categoryId) {
+  if (!categoryId || categoryId === "all") return images;
+  return images.filter((img) => img.category === categoryId);
+}
+
+export function getFeaturedImages(images, limit = 6) {
+  const featured = images.filter((img) => img.featured);
+  return (featured.length ? featured : images).slice(0, limit);
 }
 
 // Categories that currently have published work — drives which filter
 // pills appear on the portfolio page so empty categories stay hidden
 // until real photography is added.
-export function getCategoriesWithContent(categories) {
-  const present = new Set(portfolioImages.map((img) => img.category));
+export function getCategoriesWithContent(categories, images) {
+  const present = new Set(images.map((img) => img.category));
   return categories.filter((category) => present.has(category.id));
 }

@@ -3,16 +3,25 @@ import SectionHeading from "../components/common/SectionHeading.jsx";
 import CategoryFilter from "../components/portfolio/CategoryFilter.jsx";
 import PortfolioGrid from "../components/portfolio/PortfolioGrid.jsx";
 import ImageLightbox from "../components/portfolio/ImageLightbox.jsx";
-import { categories } from "../data/categories.js";
-import { getImagesByCategory, getCategoriesWithContent } from "../data/portfolioImages.js";
-import { t } from "../i18n/index.js";
+import { getCategories } from "../data/categories.js";
+import { getPortfolioImages, getImagesByCategory, getCategoriesWithContent } from "../data/portfolioImages.js";
+import { useTranslation } from "../i18n/LanguageContext.jsx";
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [openIndex, setOpenIndex] = useState(null);
+  const { t } = useTranslation();
 
-  const availableCategories = useMemo(() => getCategoriesWithContent(categories), []);
-  const images = useMemo(() => getImagesByCategory(activeCategory), [activeCategory]);
+  const categories = useMemo(() => getCategories(t), [t]);
+  const allImages = useMemo(() => getPortfolioImages(t), [t]);
+  const availableCategories = useMemo(
+    () => getCategoriesWithContent(categories, allImages),
+    [categories, allImages]
+  );
+  const images = useMemo(
+    () => getImagesByCategory(allImages, activeCategory),
+    [allImages, activeCategory]
+  );
 
   return (
     <div className="page-fade">

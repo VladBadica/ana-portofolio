@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { t } from "../../i18n/index.js";
+import { useTranslation } from "../../i18n/LanguageContext.jsx";
+import { supportedLocales } from "../../i18n/index.js";
 import "./Navbar.css";
-
-const links = [
-  { to: "/work", label: t.nav.work },
-  { to: "/about", label: t.nav.about },
-  { to: "/contact", label: t.nav.contact },
-];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { t, locale, setLocale } = useTranslation();
+
+  const links = [
+    { to: "/work", label: t.nav.work },
+    { to: "/about", label: t.nav.about },
+    { to: "/contact", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     setOpen(false);
@@ -50,6 +52,7 @@ export default function Navbar() {
           >
             <InstagramIcon />
           </a>
+          <LanguageSwitcher locale={locale} setLocale={setLocale} />
         </nav>
 
         <button
@@ -85,8 +88,27 @@ export default function Navbar() {
         >
           <InstagramIcon /> <span>{t.nav.instagram}</span>
         </a>
+        <LanguageSwitcher locale={locale} setLocale={setLocale} className="navbar__lang--mobile" />
       </div>
     </header>
+  );
+}
+
+function LanguageSwitcher({ locale, setLocale, className = "" }) {
+  return (
+    <div className={`navbar__lang ${className}`} role="group" aria-label="Language">
+      {supportedLocales.map((code) => (
+        <button
+          key={code}
+          type="button"
+          className={`navbar__lang-option ${locale === code ? "is-active" : ""}`}
+          aria-pressed={locale === code}
+          onClick={() => setLocale(code)}
+        >
+          {code.toUpperCase()}
+        </button>
+      ))}
+    </div>
   );
 }
 

@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import Reveal from "../common/Reveal.jsx";
-import { photographer } from "../../data/photographer.js";
-import { t } from "../../i18n/index.js";
+import { getPhotographer } from "../../data/photographer.js";
+import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import "./AboutPreview.css";
 
 export default function AboutPreview() {
+  const { t } = useTranslation();
+  const photographer = getPhotographer(t);
+
   return (
     <section className="about-preview container">
       <Reveal className="about-preview__image-wrap">

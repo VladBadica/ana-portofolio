@@ -10,7 +10,10 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist-standalone
 *.local
+ana-portofolio-build.zip
+ana-portofolio-preview.html
 
 # Environment variables
 .env

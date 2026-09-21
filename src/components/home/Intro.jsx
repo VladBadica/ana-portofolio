@@ -1,8 +1,10 @@
 import Reveal from "../common/Reveal.jsx";
-import { t } from "../../i18n/index.js";
+import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import "./Intro.css";
 
 export default function Intro() {
+  const { t } = useTranslation();
+
   return (
     <section className="intro container">
       <Reveal as="p" className="intro__text font-serif">

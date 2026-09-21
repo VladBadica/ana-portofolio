@@ -6,7 +6,7 @@ import Home from "./pages/Home.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
-import { t } from "./i18n/index.js";
+import { useTranslation } from "./i18n/LanguageContext.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -17,6 +17,8 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { t } = useTranslation();
+
   return (
     <>
       <a href="#main" className="skip-link">
@@ -39,6 +41,8 @@ export default function App() {
 }
 
 function NotFound() {
+  const { t } = useTranslation();
+
   return (
     <div className="page-fade container" style={{ padding: "8rem 0", textAlign: "center" }}>
       <p className="eyebrow">{t.notFound.code}</p>

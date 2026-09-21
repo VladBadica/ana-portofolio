@@ -1,10 +1,13 @@
 import Reveal from "../components/common/Reveal.jsx";
 import ContactCTA from "../components/home/ContactCTA.jsx";
-import { photographer } from "../data/photographer.js";
-import { t } from "../i18n/index.js";
+import { getPhotographer } from "../data/photographer.js";
+import { useTranslation } from "../i18n/LanguageContext.jsx";
 import "./About.css";
 
 export default function About() {
+  const { t } = useTranslation();
+  const photographer = getPhotographer(t);
+
   return (
     <div className="page-fade about-page">
       <section className="about-hero container">
