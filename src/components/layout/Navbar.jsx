@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import { supportedLocales } from "../../i18n/index.js";
+import { social } from "../../data/social.js";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -43,15 +44,26 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
-          <a
-            className="navbar__icon"
-            href="https://instagram.com"
-            target="_blank"
-            rel="noreferrer"
-            aria-label={t.nav.instagramAriaLabel}
-          >
-            <InstagramIcon />
-          </a>
+          <div className="navbar__socials">
+            <a
+              className="navbar__icon"
+              href={social.instagram.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={t.nav.instagramAriaLabel}
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              className="navbar__icon"
+              href={social.tiktok.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={t.nav.tiktokAriaLabel}
+            >
+              <TikTokIcon />
+            </a>
+          </div>
           <LanguageSwitcher locale={locale} setLocale={setLocale} />
         </nav>
 
@@ -79,15 +91,26 @@ export default function Navbar() {
             </NavLink>
           ))}
         </nav>
-        <a
-          className="navbar__mobile-icon"
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          aria-label={t.nav.instagramAriaLabel}
-        >
-          <InstagramIcon /> <span>{t.nav.instagram}</span>
-        </a>
+        <div className="navbar__mobile-socials">
+          <a
+            className="navbar__mobile-icon"
+            href={social.instagram.url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={t.nav.instagramAriaLabel}
+          >
+            <InstagramIcon /> <span>{t.nav.instagram}</span>
+          </a>
+          <a
+            className="navbar__mobile-icon"
+            href={social.tiktok.url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={t.nav.tiktokAriaLabel}
+          >
+            <TikTokIcon /> <span>{t.nav.tiktok}</span>
+          </a>
+        </div>
         <LanguageSwitcher locale={locale} setLocale={setLocale} className="navbar__lang--mobile" />
       </div>
     </header>
@@ -109,6 +132,27 @@ function LanguageSwitcher({ locale, setLocale, className = "" }) {
         </button>
       ))}
     </div>
+  );
+}
+
+function TikTokIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M14.5 3v11a3.8 3.8 0 1 1-3.8-3.8"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14.5 3c.25 2.4 1.9 4.2 4.5 4.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 

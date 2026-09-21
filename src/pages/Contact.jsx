@@ -1,5 +1,6 @@
 import Reveal from "../components/common/Reveal.jsx";
 import { useTranslation } from "../i18n/LanguageContext.jsx";
+import { social } from "../data/social.js";
 import "./Contact.css";
 
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL;
@@ -17,8 +18,13 @@ export default function Contact() {
     },
     {
       label: t.contact.details.instagramLabel,
-      value: t.contact.details.instagramValue,
-      href: "https://instagram.com",
+      value: social.instagram.handle,
+      href: social.instagram.url,
+    },
+    {
+      label: t.contact.details.tiktokLabel,
+      value: social.tiktok.handle,
+      href: social.tiktok.url,
     },
     { label: t.contact.details.basedInLabel, value: t.contact.details.basedInValue },
   ];

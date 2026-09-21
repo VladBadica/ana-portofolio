@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
+import { social } from "../../data/social.js";
 import "./Footer.css";
 
 export default function Footer() {
@@ -18,8 +19,11 @@ export default function Footer() {
           <Link to="/work">{t.footer.work}</Link>
           <Link to="/about">{t.footer.about}</Link>
           <Link to="/contact">{t.footer.contact}</Link>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+          <a href={social.instagram.url} target="_blank" rel="noreferrer">
             {t.footer.instagram}
+          </a>
+          <a href={social.tiktok.url} target="_blank" rel="noreferrer">
+            {t.footer.tiktok}
           </a>
         </nav>
 
