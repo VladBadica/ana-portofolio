@@ -1,7 +1,7 @@
 import Reveal from "../components/common/Reveal.jsx";
 import { useTranslation } from "../i18n/LanguageContext.jsx";
 import { social } from "../data/social.js";
-import "./Contact.css";
+import "../styles/pages/Contact.css";
 
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL;
 const contactPhone = import.meta.env.VITE_CONTACT_PHONE;

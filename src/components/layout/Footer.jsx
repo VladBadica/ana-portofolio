@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import { social } from "../../data/social.js";
-import "./Footer.css";
+import "../../styles/layout/Footer.css";
 
 export default function Footer() {
   const { t } = useTranslation();

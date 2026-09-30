@@ -3,7 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
 import { supportedLocales } from "../../i18n/index.js";
 import { social } from "../../data/social.js";
-import "./Navbar.css";
+import "../../styles/layout/Navbar.css";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

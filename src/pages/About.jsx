@@ -2,7 +2,7 @@ import Reveal from "../components/common/Reveal.jsx";
 import ContactCTA from "../components/home/ContactCTA.jsx";
 import { getPhotographer } from "../data/photographer.js";
 import { useTranslation } from "../i18n/LanguageContext.jsx";
-import "./About.css";
+import "../styles/pages/About.css";
 
 export default function About() {
   const { t } = useTranslation();

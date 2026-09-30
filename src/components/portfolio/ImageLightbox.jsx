@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
-import "./ImageLightbox.css";
+import "../../styles/portfolio/ImageLightbox.css";
 
 export default function ImageLightbox({ images, index, onClose, onNavigate }) {
   const { t } = useTranslation();

@@ -5,7 +5,7 @@ import PortfolioGrid from "../portfolio/PortfolioGrid.jsx";
 import { getPortfolioImages, getFeaturedImages } from "../../data/portfolioImages.js";
 import { getCategories, getCategory } from "../../data/categories.js";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
-import "./FeaturedWork.css";
+import "../../styles/home/FeaturedWork.css";
 
 // Home shows a curated slice of whichever categories currently have
 // featured work — today that's animals, but nothing here assumes so.

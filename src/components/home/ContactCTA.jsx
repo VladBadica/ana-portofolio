@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Reveal from "../common/Reveal.jsx";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
-import "./ContactCTA.css";
+import "../../styles/home/ContactCTA.css";
 
 export default function ContactCTA({ eyebrow, title, text, linkLabel }) {
   const { t } = useTranslation();

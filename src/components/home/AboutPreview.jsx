@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Reveal from "../common/Reveal.jsx";
 import { getPhotographer } from "../../data/photographer.js";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
-import "./AboutPreview.css";
+import "../../styles/home/AboutPreview.css";
 
 export default function AboutPreview() {
   const { t } = useTranslation();

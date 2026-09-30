@@ -1,5 +1,5 @@
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
-import "./CategoryFilter.css";
+import "../../styles/portfolio/CategoryFilter.css";
 
 // Only renders categories that currently have published work, so the
 // filter row grows naturally as new categories (families, portraits...)

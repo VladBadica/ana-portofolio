@@ -1,6 +1,6 @@
 import Reveal from "../common/Reveal.jsx";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
-import "./Intro.css";
+import "../../styles/home/Intro.css";
 
 export default function Intro() {
   const { t } = useTranslation();

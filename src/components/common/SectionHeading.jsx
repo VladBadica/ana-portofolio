@@ -1,4 +1,4 @@
-import "./SectionHeading.css";
+import "../../styles/common/SectionHeading.css";
 
 // Consistent eyebrow + heading + optional supporting copy,
 // used across Home, Portfolio, About and Contact.

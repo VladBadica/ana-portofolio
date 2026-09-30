@@ -1,6 +1,6 @@
 import Reveal from "../common/Reveal.jsx";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
-import "./PortfolioGrid.css";
+import "../../styles/portfolio/PortfolioGrid.css";
 
 // Generic, category-agnostic editorial grid. Placement comes entirely
 // from each image's `span`/`orientation` fields in the data layer, so

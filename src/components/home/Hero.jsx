@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "../../i18n/LanguageContext.jsx";
-import "./Hero.css";
+import "../../styles/home/Hero.css";
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="hero__image-wrap">
         <img
           className="hero__image"
-          src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=2400&h=1500&q=80&auto=format&fit=crop"
+          src="https://ana-website-resources.s3.eu-central-1.amazonaws.com/Pet+photography/IMG_1419.jpg"
           alt={t.home.hero.imageAlt}
           fetchpriority="high"
         />
