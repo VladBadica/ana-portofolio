@@ -3,193 +3,83 @@
 //
 // Fields:
 //   id          unique key
-//   category    must match an id in categories.js
-//   src         Unsplash photo id (swap for real photography later)
+//   category    must match an id in categories.js — also the exact S3
+//               folder name the image lives under (pet | nature | product)
+//   photoId     exact filename inside that S3 folder, e.g. "IMG_1419.jpg"
 //   alt         meaningful, specific alt text
 //   orientation "landscape" | "portrait" | "square" — controls crop
 //   span        "wide" | "tall" | "normal" — controls grid placement
 //   featured    included in the homepage Featured Work strip
 
-function unsplash(id, w, h) {
-  return `https://images.unsplash.com/${id}?w=${w}&h=${h}&q=80&auto=format&fit=crop`;
+const S3_BUCKET = "https://ana-website-resources.s3.eu-central-1.amazonaws.com";
+
+function s3Url(category, photoId) {
+  return `${S3_BUCKET}/${category}/${photoId}`;
 }
 
+// Real, published photography only — add entries here as files land in
+// the S3 bucket. No placeholder/stock images: broken/missing files are
+// worse than an empty grid.
 const raw = [
   {
-    id: "an-01",
-    category: "animals",
-    photoId: "photo-1601979031925-424e53b6caaa",
-    orientation: "landscape",
-    span: "wide",
-    featured: true,
-  },
-  {
-    id: "an-02",
-    category: "animals",
-    photoId: "photo-1441057206919-63d19fac2369",
-    orientation: "landscape",
-    span: "wide",
-    featured: true,
-  },
-  {
-    id: "an-03",
-    category: "animals",
-    photoId: "photo-1543466835-00a7907e9de1",
+    id: "pet-01",
+    category: "pet",
+    photoId: "IMG_1365.jpg",
     orientation: "portrait",
     span: "tall",
     featured: true,
   },
   {
-    id: "an-04",
-    category: "animals",
-    photoId: "photo-1548199973-03cce0bbc87b",
-    orientation: "landscape",
-    span: "wide",
-  },
-  {
-    id: "an-05",
-    category: "animals",
-    photoId: "photo-1601758228041-f3b2795255f1",
-    orientation: "portrait",
-    span: "tall",
-  },
-  {
-    id: "an-06",
-    category: "animals",
-    photoId: "photo-1583512603805-3cc6b41f3edb",
-    orientation: "square",
-    span: "normal",
-  },
-  {
-    id: "an-07",
-    category: "animals",
-    photoId: "photo-1560807707-8cc77767d783",
+    id: "pet-02",
+    category: "pet",
+    photoId: "IMG_1403.jpg",
     orientation: "portrait",
     span: "tall",
     featured: true,
   },
   {
-    id: "an-08",
-    category: "animals",
-    photoId: "photo-1544568100-847a948585b9",
-    orientation: "square",
-    span: "normal",
-  },
-  {
-    id: "an-09",
-    category: "animals",
-    photoId: "photo-1608096299210-db7e38487075",
-    orientation: "square",
-    span: "normal",
-  },
-  {
-    id: "an-10",
-    category: "animals",
-    photoId: "photo-1552053831-71594a27632d",
-    orientation: "landscape",
-    span: "wide",
-  },
-  {
-    id: "an-11",
-    category: "animals",
-    photoId: "photo-1598133894008-61f7fdb8cc3a",
+    id: "pet-03",
+    category: "pet",
+    photoId: "IMG_2574.jpg",
     orientation: "portrait",
     span: "tall",
-  },
-  {
-    id: "an-12",
-    category: "animals",
-    photoId: "photo-1552728089-57bdde30beb3",
-    orientation: "landscape",
-    span: "wide",
     featured: true,
   },
   {
-    id: "an-13",
-    category: "animals",
-    photoId: "photo-1543852786-1cf6624b9987",
+    id: "pet-04",
+    category: "pet",
+    photoId: "IMG_1216.jpg",
+    orientation: "portrait",
+    span: "tall",
+    featured: true,
+  },
+  {
+    id: "pet-05",
+    category: "pet",
+    photoId: "IMG_0009.JPG",
     orientation: "landscape",
     span: "wide",
-  },
-  {
-    id: "an-14",
-    category: "animals",
-    photoId: "photo-1519052537078-e6302a4968d4",
+    featured: true,
+  }, {
+    id: "pet-06",
+    category: "pet",
+    photoId: "IMG_2573.jpg",
     orientation: "portrait",
     span: "tall",
-  },
-  {
-    id: "an-15",
-    category: "animals",
-    photoId: "photo-1596492784531-6e6eb5ea9993",
-    orientation: "square",
-    span: "normal",
-  },
-  {
-    id: "an-16",
-    category: "animals",
-    photoId: "photo-1518717758536-85ae29035b6d",
-    orientation: "portrait",
-    span: "normal",
-  },
-  {
-    id: "an-17",
-    category: "animals",
-    photoId: "photo-1490644658840-3f2e3f8c5625",
-    orientation: "portrait",
-    span: "tall",
-  },
-  {
-    id: "an-18",
-    category: "animals",
-    photoId: "photo-1601758124510-52d02ddb7cbd",
-    orientation: "landscape",
-    span: "normal",
-  },
-  {
-    id: "an-19",
-    category: "animals",
-    photoId: "photo-1595433707802-6b2626ef1c91",
-    orientation: "portrait",
-    span: "tall",
-  },
-  {
-    id: "an-20",
-    category: "animals",
-    photoId: "photo-1490750967868-88aa4486c946",
-    orientation: "landscape",
-    span: "wide",
-  },
-  {
-    id: "an-21",
-    category: "animals",
-    photoId: "photo-1587300003388-59208cc962cb",
-    orientation: "landscape",
-    span: "normal",
-  },
-  {
-    id: "an-22",
-    category: "animals",
-    photoId: "photo-1524678606370-a47ad25cb82a",
-    orientation: "portrait",
-    span: "normal",
+    featured: true,
   },
 ];
 
-const SIZE_MAP = {
-  landscape: { w: 1600, h: 1067 },
-  portrait: { w: 1067, h: 1400 },
-  square: { w: 1200, h: 1200 },
-};
-
 export function getPortfolioImages(t) {
   return raw.map((img) => {
-    const { w, h } = SIZE_MAP[img.orientation];
+    const src = s3Url(img.category, img.photoId);
     return {
       ...img,
       alt: t.portfolioImages[img.id],
-      src: unsplash(img.photoId, w, h),
-      thumbSrc: unsplash(img.photoId, Math.round(w / 2.4), Math.round(h / 2.4)),
+      src,
+      // S3 serves the original file only — no on-the-fly resizing, so
+      // the grid thumbnail reuses the same image as the full view.
+      thumbSrc: src,
     };
   });
 }

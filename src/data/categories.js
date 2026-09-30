@@ -3,12 +3,9 @@
 // read from this list rather than hardcoding category names.
 export function getCategories(t) {
   return [
-    { id: "animals", ...t.categories.animals },
-    { id: "families", ...t.categories.families },
-    { id: "portraits", ...t.categories.portraits },
-    { id: "couples", ...t.categories.couples },
-    { id: "lifestyle", ...t.categories.lifestyle },
-    { id: "events", ...t.categories.events },
+    { id: "pet", ...t.categories.pet },
+    { id: "nature", ...t.categories.nature },
+    { id: "product", ...t.categories.product },
   ];
 }
 

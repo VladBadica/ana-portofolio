@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="hero__image-wrap">
         <img
           className="hero__image"
-          src="https://ana-website-resources.s3.eu-central-1.amazonaws.com/Pet+photography/IMG_1419.jpg"
+          src="https://ana-website-resources.s3.eu-central-1.amazonaws.com/pet/IMG_1419.jpg"
           alt={t.home.hero.imageAlt}
           fetchpriority="high"
         />
