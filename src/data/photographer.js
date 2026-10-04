@@ -3,10 +3,10 @@ export function getPhotographer(t) {
     name: t.photographer.name,
     location: t.photographer.location,
     portrait:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&h=1500&q=80&auto=format&fit=crop",
+      "https://ana-website-resources.s3.eu-central-1.amazonaws.com/portrait-ana.jpg",
     portraitAlt: t.photographer.portraitAlt,
     candid:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200&h=1500&q=80&auto=format&fit=crop",
+      "https://ana-website-resources.s3.eu-central-1.amazonaws.com/portrait-ana.jpg",
     candidAlt: t.photographer.candidAlt,
   };
 }
